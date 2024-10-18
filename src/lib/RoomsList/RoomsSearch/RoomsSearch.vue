@@ -1,16 +1,20 @@
 <template>
-  <div :class="{
+  <div
+:class="{
     'vac-box-search': showSearchBar,
     'vac-box-empty': !showSearchBar
-  }">
+  }"
+>
     <template v-if="showSearch">
       <div v-if="!loadingRooms" class="vac-icon-search">
         <slot name="search-icon">
           <svg-icon name="search" />
         </slot>
       </div>
-      <input v-if="!loadingRooms" type="search" :placeholder="textMessages.SEARCH" autocomplete="off" class="vac-input"
-        @input="$emit('search-room', $event)" />
+      <input
+v-if="!loadingRooms" type="search" :placeholder="textMessages.SEARCH" autocomplete="off" class="vac-input"
+        @input="$emit('search-room', $event)"
+/>
     </template>
     <div v-if="showAddRoom" class="vac-svg-button vac-add-icon" @click="$emit('add-room')">
       <slot name="add-icon">
